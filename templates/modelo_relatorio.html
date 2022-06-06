@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        {% for cabecalho in cabecalhos %}
+            <table border="1">
+                <tr>
+                    <th>Nome da Empresa</th>
+                    <th>Numero de Inscricao da Empresa</th>
+                    <th>Nome do Banco</th>
+                    <th>Nome da Rua</th>
+                    <th>Numero do Local</th>
+                    <th>Nome da Cidade</th>
+                    <th>CEP</th>
+                    <th>Sigla do Estado</th>
+                </tr>
+                <tr>
+                    <td>{{ cabecalho.nome_empresa }}</td>
+                    <td>{{ cabecalho.numero_inscricao_empresa }}</td>
+                    <td>{{ cabecalho.nome_banco }}</td>
+                    <td>{{ cabecalho.nome_rua }}</td>
+                    <td>{{ cabecalho.numero_local }}</td>
+                    <td>{{ cabecalho.cidade }}</td>
+                    <td>{{ cabecalho.cep }}</td>
+                    <td>{{ cabecalho.sigla_estado }}</td>
+                </tr>
+            </table>
+            <br />
+            <table border="1">
+                <tr>
+                    <th>Nome do Favorecido</th>
+                    <th>Data de Pagamento</th>
+                    <th>Valor do Pagamento</th>
+                    <th>Numero do Documento Atribuido pela Empresa</th>
+                    <th>Forma de Lancamento</th>
+                </tr>
+                {% for detalhe_saida in cabecalho.detalhes %}
+                    <tr>
+                        <td>{{ detalhe_saida.nome_favorecido }}</td>
+                        <td>{{ detalhe_saida.data_pagamento }}</td>
+                        <td>{{ detalhe_saida.valor_pagamento }}</td>
+                        <td>{{ detalhe_saida.numero_documento_empresa }}</td>
+                        <td>{{ detalhe_saida.forma_lancamento }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <br />
+        {% endfor %}
+    </body>
+</html>
+
